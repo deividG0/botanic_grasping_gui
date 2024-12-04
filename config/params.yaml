@@ -1,0 +1,48 @@
+omp_ros2:
+  ros__parameters:
+    home_joint_array: [0.0, -1.57, 0.0, -1.57, 0.0, 0.0]
+    trajectory_time_slow: 8
+    trajectory_time_fast: 3
+    cube_size: 0.04 # Size of the target cube in RVIZ2
+    interactive_marker_size: 0.2 # size of the interactive marker in RVIZ2
+
+    gripper_closed_position: 0.3
+    gripper_open_position: 1.2
+
+omp_controller_server:
+  ros__parameters:
+    trajectory_type: 2 # 1 for cubic interpolation
+                       # 2 for quintic interpolation
+                       # 3 for LSPB
+                       # 4 for Minimum Time Trajectories (Spong)
+    trajectory_tolerance_error: 0.001 # Tolerance error per joint in radians
+    trajectory_timout: 10 # Timeout for trajectory execution in seconds
+                          # Must be greater than the trajectory time set
+                          # in the omp_isaac_ros2 node
+
+gripper_controller_server:
+  ros__parameters:
+    robotiq_joint_name: ["gripper",
+                         "gripper_sub"]
+    force_threshold: 500 # Force threshold for the gripper to stop
+                         # 125 N is the 2F-140 maximum grip force
+    goal_tolerance: [0.05, 0.05]
+    joint_directions_close: [1, -1]
+    trajectory_tolerance_error: 0.001 # Tolerance error per joint in radians
+    trajectory_timout: 6 # Timeout for trajectory execution in seconds
+                          # Must be greater than the trajectory time set
+                          # in the omp_isaac_ros2 node
+
+tkinter_gui:
+  standing_pose: [0.0, 0.0, -0.78, 1.57, 0.0, -1.0472]
+  home_pose: [0.0, 0.0, 0.78, 1.57, 0.0, -1.0472]
+  auto_grasp_pose: [0.0, -1.52, 1.41, 1.56, 0.88, -1.0472]
+  floor_grasp_pose: [0.0, 0.0, 0.74, 1.57, 1.57, -0.97]
+  sleep_pose: [0.0, -1.25, 1.9, 1.54, 0.0, -1.0472]
+  cam_calibration_pose: [0.0, -0.9, 1.7, 1.57, 1.53, -1.0472]
+  # sleep_pose: [0.0, -1.571, 1.55, 0.0, 0.0, 0.0]
+  robot_home_joint_angles: [0, -90, 0, -90, 0, 0, 0]
+  object_pick_joint_angles: [0.0919, -1.6181, -2.0293, -1.067, 1.5749, 0.0714]
+
+  gripper_closed_position: 0.3
+  gripper_open_position: 1.2
