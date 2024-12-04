@@ -1,0 +1,8 @@
+numpy==1.26.0
+opencv-python==4.9.0.80
+pyrealsense2==2.55.1.6486
+transformations==2024.4.24
+urdf-parser-py==0.0.4
+trimesh==4.3.2
+scikit-image==0.23.2
+mediapipe==0.10.14
