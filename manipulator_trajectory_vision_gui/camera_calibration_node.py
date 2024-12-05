@@ -29,7 +29,9 @@ class CameraCalibrationNode(Node):
     def __init__(self):
         super().__init__('camera_calibration_node')
         # Load the reference image (Make sure it's in the correct path)
-        share_directory = get_package_share_directory("manipulator_trajectory_vision_gui")
+        share_directory = get_package_share_directory(
+            "manipulator_trajectory_vision_gui"
+            )
         root_path = os.path.join(
             share_directory, "resource", "images", "reference_image.jpg"
             )

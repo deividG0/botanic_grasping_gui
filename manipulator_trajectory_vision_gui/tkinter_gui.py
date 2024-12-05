@@ -22,8 +22,8 @@ from tkinter import messagebox
 import numpy as np
 from ament_index_python.packages import get_package_share_directory
 
-from manipulator_trajectory_vision_gui.helper_functions.load_ros_parameters import \
-    load_yaml_file
+from manipulator_trajectory_vision_gui.helper_functions.load_ros_parameters \
+    import load_yaml_file
 
 
 def is_valid_number(input_str: str):

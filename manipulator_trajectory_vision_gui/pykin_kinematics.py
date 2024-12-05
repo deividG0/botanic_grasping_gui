@@ -23,7 +23,9 @@ from ament_index_python.packages import get_package_share_directory
 class IKCalculatorOMP:
     def __init__(self, start="world", end="end_link"):
         # Default variables
-        share_directory = get_package_share_directory("manipulator_trajectory_vision_gui")
+        share_directory = get_package_share_directory(
+            "manipulator_trajectory_vision_gui"
+            )
         file_path = os.path.join(
             share_directory,
             "resource",
