@@ -8,6 +8,10 @@ Repository to group trajectory algorithms configurations for the OpenManipulator
 
 This project is licensed under the [MIT License](LICENSE).
 
+**Author**: Deivid Gomes\
+**Affiliation**: Brazilian Institute of Robotics - BIR\
+**Maintainer**: Deivid Gomes, deivid.silva@fbter.org.br
+
 ## **Requirements**
 
 The `botanig_grasping` package has been tested under:
