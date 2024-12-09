@@ -52,18 +52,7 @@ class IKCalculatorOMP:
     def compute_IK_LM_modified(
             self, frames, current_joints, target_pose, max_iter,
             ):
-        """
-        Computes inverse kinematics using Levenberg-Marquatdt method
-
-        Args:
-            frames (list or Frame()): robot's frame for inverse kinematics
-            current_joints (sequence of float): input joint angles
-            target_pose (np.array): goal pose to achieve
-            max_iter (int): Maximum number of calculation iterations
-
-        Returns:
-            joints (np.array): target joint angles
-        """
+        """Compute inverse kinematics using Levenberg-Marquatdt method."""
         iterator = 1
         EPS = float(1e-12)
         dof = len(current_joints)
@@ -130,9 +119,6 @@ class IKCalculatorOMP:
         max_iter=100,
         method="LM"
     ):
-        """
-            Pose formato: [x, y, z, w, qx, qy, qz]
-        """
         pose = np.array(pose)
         current_thetas = np.array(current_thetas)
 
@@ -146,15 +132,9 @@ class IKCalculatorOMP:
         return ik_LM_result
 
     def calculate_fk(self, current_thetas):
-        """
-        Formato de retorno: [x, y, z]
-        """
         return self.get_tf(current_thetas)["end_link"]
 
     def get_tf(self, current_thetas):
-        """
-        Formato de retorno: [x, y, z]
-        """
         current_thetas = np.array(current_thetas)
 
         fk_result = self.robot.forward_kin(

@@ -90,6 +90,7 @@ class DebugPykin(Node):
         self.mode = msg.data
 
     def update_joint_state(self, msg):
+        """Get simulated OMP joint angles."""
         if msg.name[0] == "gripper":
             self.gripper_position = msg.position[0]
             self.joint_states[0] = msg.position[3]
@@ -264,8 +265,10 @@ class DebugPykin(Node):
         self, c, joint_angles, required_position, required_orientation
     ):
         """
-            Verifying if the position of the real end
-            effector is equal (or close enough) to the required one.
+        Check acceptability.
+
+        Verify if the position of the real end effector
+        is equal (or close enough) to the required one.
         """
         fk = c.calculate_fk(current_thetas=joint_angles)
         fk_position = fk.pos

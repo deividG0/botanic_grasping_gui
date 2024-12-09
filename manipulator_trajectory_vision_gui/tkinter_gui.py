@@ -27,19 +27,7 @@ from manipulator_trajectory_vision_gui.helper_functions.load_ros_parameters \
 
 
 def is_valid_number(input_str: str):
-    """Check if the input is a valid number.
-
-    Parameters
-    ----------
-    input_str : str
-        The input string.
-
-    Returns
-    -------
-    bool
-        True if the input is a valid number, False otherwise.
-
-    """
+    """Check if the input is a valid number."""
     try:
         float(input_str)
         return True
@@ -93,7 +81,11 @@ class TkinterGui():
         buttons_lists: list
     ):
         """
+
+        Create action button in tkinter.
+
         The last parameter is the frame where the button is clicked.
+
         """
         for button in buttons_lists:
             tk.Button(
@@ -105,21 +97,12 @@ class TkinterGui():
                 width=30).pack()
 
     def change_frame_tkinter(self, previous_frame, next_frame):
-        """Change the frame in the Tkinter GUI"""
+        """Change the frame in the Tkinter GUI."""
         previous_frame.pack_forget()
         next_frame.pack()
 
     def generate_main_frame(self, main_frame, inverse_kinematics_frame):
-        """Generate the main frame in the Tkinter GUI.
-
-        Parameters
-        ----------
-        main_frame : tk.Frame
-            The main frame in the Tkinter GUI.
-        inverse_kinematics_frame : tk.Frame
-            The inverse kinematics frame in the Tkinter GUI.
-
-        """
+        """Generate the main frame in the Tkinter GUI."""
         gripper_closed_position = self.config['gripper_closed_position']
         gripper_open_position = self.config['gripper_open_position']
         main_frame_buttons = [
@@ -364,16 +347,7 @@ class TkinterGui():
         main_frame,
         inverse_kinematics_frame
     ):
-        """Generate the inverse kinematics frame in the Tkinter GUI.
-
-        Parameters
-        ----------
-        main_frame : tk.Frame
-            The main frame in the Tkinter GUI.
-        inverse_kinematics_frame : tk.Frame
-            The inverse kinematics frame in the Tkinter GUI.
-
-        """
+        """Generate the inverse kinematics frame in the Tkinter GUI."""
         labels = [
             "X or J1:",
             "Y or J2:",
@@ -465,7 +439,7 @@ class TkinterGui():
                   ).pack(side="left")
 
     def build_frames(self):
-        """Build the frames in the Tkinter GUI"""
+        """Build the frames in the Tkinter GUI."""
         # Frame do botao atual
         main_frame = tk.Frame(self.root)
         main_frame.pack(side=tk.TOP)

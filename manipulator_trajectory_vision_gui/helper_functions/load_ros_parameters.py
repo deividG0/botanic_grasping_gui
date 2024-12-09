@@ -20,14 +20,15 @@ import yaml
 
 
 def load_yaml_file(filename) -> dict:
-    """Load yaml file with the OMP Parameters"""
+    """Load yaml file with the OMP Parameters."""
     with open(filename, 'r', encoding='UTF-8') as file:
         data = yaml.safe_load(file)
     return data
 
 
 def get_ros_parameters(node_name):
-    """Get the ROS2 parameters from the yaml file
+    """
+    Get the ROS2 parameters from the yaml file.
 
     Returns
     -------

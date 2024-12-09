@@ -411,19 +411,8 @@ class OMPJointController(Node):
             self.plot_graphs(self.time, positions, velocities, accelerations)
 
     def update_joint_state(self, msg: JointState):
-        """Get simulated OMP joint angles in the following order:
-
-        shoulder_pan_joint, shoulder_lift_joint, elbow_joint
-        wrist_1_joint, wrist_2_joint, wrist_3_joint
-
-        Parameters
-        ----------
-        msg : JointState
-            JointState message from the /joint_states topic
-
-        """
+        """Get simulated OMP joint angles."""
         if msg.name[0] == "gripper":
-            # self.joint_states = msg.position[0:6]
             self.gripper_position = msg.position[0]
             self.joint_states[0] = msg.position[3]
             self.joint_states[1] = msg.position[1]
@@ -433,7 +422,6 @@ class OMPJointController(Node):
             self.joint_states[5] = msg.position[6]
             self.joint_states = np.array(self.joint_states)
         else:
-            # self.joint_states = msg.position[0:6]
             self.joint_states[0] = msg.position[2]
             self.joint_states[1] = msg.position[0]
             self.joint_states[2] = msg.position[1]
@@ -442,7 +430,6 @@ class OMPJointController(Node):
             self.joint_states[5] = msg.position[5]
             self.gripper_position = msg.position[6]
             self.joint_states = np.array(self.joint_states)
-        # self.get_logger().info(f"{self.joint_states}")
 
     def compute_quintic_coefficients(self, p0, pf, v0, vf, a0, af, t0, tf):
         # This function uses the values that we already
@@ -501,7 +488,6 @@ class OMPJointController(Node):
 
 
 def main(args=None):
-    """Main function."""
     rclpy.init(args=args)
     omp_server = OMPJointController()
     executor = MultiThreadedExecutor()

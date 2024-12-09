@@ -35,7 +35,7 @@ from .tkinter_gui import TkinterGui
 
 
 class OpenManipulatorPro(Node):
-    """Class to simulate OMP Robot in"""
+    """Class to simulate OMP Robot."""
 
     omp_joint_names = [
         "joint1", "joint2", "joint3", "joint4", "joint5", "joint6"
@@ -44,8 +44,7 @@ class OpenManipulatorPro(Node):
     gripper_joint_names = ["gripper", "gripper_sub"]
 
     def __init__(self):
-        """Initialize the OMP simulation"""
-
+        """Initialize the OMP simulation."""
         node_name = "omp_ros2"
         super().__init__(node_name)
 
@@ -232,9 +231,6 @@ class OpenManipulatorPro(Node):
         msg = String()
         msg.data = f"{str}"
         self.switch_grasp_mode.publish(msg)
-
-    # def number_items_listener(self, msg):
-    #     self.number_items = msg.data
 
     def grasping_point_listener(self, msg):
         self.grasping_point = np.array(msg.data).tolist()
@@ -513,10 +509,7 @@ class OpenManipulatorPro(Node):
     def is_ik_acceptable(
             self, joint_angles, required_position, required_orientation
             ):
-        """
-            Verifying if the position of the real end effector
-            is equal (or close enough) to the required one.
-        """
+        """Verify the distance of the end effector to the required one."""
         fk = self.omp_ik_calculator.calculate_fk(current_thetas=joint_angles)
         fk_position = fk.pos
         fk_rot = fk.rot
@@ -629,21 +622,7 @@ class OpenManipulatorPro(Node):
         inv_kin: bool = False,
         check_self_collision: float = 1.0,  # It means True
     ):
-        """
-        Send trajectory to the OMP robot in .
-
-        Parameters
-        ----------
-        target : list
-            Target joint positions or
-            target pose [x, y, z, w, qx, qy, qz] in degrees (if inv_kin
-            is True).
-        movement : str
-            Type of movement (slow, fast).
-        inv_kin : bool
-            If True, the target is the desired pose
-            (default: {False}).
-        """
+        """Send trajectory to the OMP robot."""
         self.get_logger().info(f"In send_goal: {target}.")
 
         self.goal_prim = "OMP"
@@ -745,7 +724,6 @@ class OpenManipulatorPro(Node):
 
 
 def main(args=None):
-    """Main function to run the OMP  simulation."""
     rclpy.init(args=args)
 
     ros2_publisher = OpenManipulatorPro()

@@ -232,52 +232,14 @@ class ImageRGBYOLO(Node):
                         .format(e)
                         )
 
-    def draw_rectangle(
-        self, image, center, width, height, color=(0, 255, 0), thickness=2
-    ):
-        """
-        Draws a rectangle on an image using
-        the center point, width, and height.
-
-        Parameters:
-            image (numpy.ndarray):
-                The input image on which to draw the rectangle.
-            center (tuple):
-                The (x, y) coordinates of the center of the rectangle.
-            width (int): The width of the rectangle.
-            height (int): The height of the rectangle.
-            color (tuple): The color of the rectangle
-                in BGR format (default is green).
-            thickness (int): The thickness of
-                the rectangle border (default is 2).
-
-        Returns:
-            numpy.ndarray: The image with the rectangle drawn on it.
-        """
-        width = int(width)
-        height = int(height)
-
-        # Calculate the top-left and bottom-right coordinates of the rectangle
-        top_left = (
-            int(center[0] - width / 2), int(center[1] - height / 2)
-            )
-        bottom_right = (
-            int(center[0] + width / 2), int(center[1] + height / 2)
-            )
-
-        # Draw the rectangle on the image
-        cv2.rectangle(image, top_left, bottom_right, color, thickness)
-
     def generate_grasp(
         self, depth_image, mask, coordinates, intrisic, interest="center"
     ):
         """
-            This function return the grasp position [x, y, z, angle]
-            based on the object mask returned by a YOLO model and depth image.
-            OBS.: The possibility of merged masks is
-            not being considered and might be a problem.
-            But it can be solved with the bounding
-            boxes also returned by the YOLO model.
+        Generate grasp.
+
+        Returns the grasp position [x, y, z, angle] using object
+        mask, depth image, and camera intrinsic parameters.
         """
         m = mask
 
@@ -288,7 +250,7 @@ class ImageRGBYOLO(Node):
         cropped_depth_image = get_cropped_img(depth_image, mask, show=False)
 
         # Finding min depth value
-        min_depth_value, min_depth_coordinates = get_min_depth_coordinates(
+        _, min_depth_coordinates = get_min_depth_coordinates(
             depth_image=cropped_depth_image, mask=mask
         )
         rect, box = generate_oriented_rectangle(mask)

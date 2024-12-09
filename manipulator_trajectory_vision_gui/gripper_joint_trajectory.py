@@ -155,17 +155,7 @@ class OMPJointController(Node):
         self.send_trajectory(trajectory)
 
     def update_joint_state(self, msg: JointState):
-        """Get simulated OMP joint angles in the following order:
-
-        shoulder_pan_joint, shoulder_lift_joint, elbow_joint
-        wrist_1_joint, wrist_2_joint, wrist_3_joint
-
-        Parameters
-        ----------
-        msg : JointState
-            JointState message from the /joint_states topic
-
-        """
+        """Get simulated OMP joint angles."""
         if msg.name[0] == "gripper":
             self.joint_states = msg.position[0]
             self.omp_states[0] = msg.position[3]
@@ -184,11 +174,9 @@ class OMPJointController(Node):
             self.joint_states = msg.position[6]
 
     def compute_quintic_coefficients(self, p0, pf, v0, vf, a0, af, t0, tf):
-        """
-            This function uses the values that we already
-            now about the polynomial equation to find the coeffs.
-            The values that we already now are the initial and final values.
-        """
+        # This function uses the values that we already
+        # now about the polynomial equation to find the coeffs.
+        # The values that we already now are the initial and final values.
         A = np.array(
             [
                 [1, t0, t0**2, t0**3, t0**4, t0**5],
@@ -219,8 +207,7 @@ class OMPJointController(Node):
 
     def feedback_callback(self, feedback_msg):
         feedback = feedback_msg.feedback
-        feedback
-        # self.get_logger().info(f"Received feedback: {feedback}")
+        self.get_logger().info(f"Received feedback: {feedback}")
 
     def goal_response_callback(self, future):
         goal_handle = future.result()
@@ -232,8 +219,7 @@ class OMPJointController(Node):
 
     def get_result_callback(self, future):
         result = future.result().result
-        result
-        # self.get_logger().info(f'Result: {result}')
+        self.get_logger().info(f'Result: {result}')
 
         # Sending end of the movimentation to the omp_ros2
         msg = Bool()
@@ -242,7 +228,6 @@ class OMPJointController(Node):
 
 
 def main(args=None):
-    """Main function."""
     rclpy.init(args=args)
     omp_server = OMPJointController()
     executor = MultiThreadedExecutor()

@@ -19,17 +19,7 @@ import cv2
 
 
 def euler_to_quaternion(roll, pitch, yaw):
-    """
-    Convert Euler angles to quaternion representation.
-
-    Parameters:
-        roll: float - Roll angle in radians.
-        pitch: float - Pitch angle in radians.
-        yaw: float - Yaw angle in radians.
-
-    Returns:
-        numpy.array - Quaternion [w, x, y, z].
-    """
+    """Convert Euler angles to quaternion representation."""
     cy = np.cos(yaw * 0.5)
     sy = np.sin(yaw * 0.5)
     cp = np.cos(pitch * 0.5)
@@ -59,18 +49,7 @@ def draw_rotated_rectangle(
                         color,
                         thickness
                         ):
-    """
-    Draw a rotated rectangle on an image.
-
-    :param image: The image to draw the rectangle on.
-    :param center: The center of the rectangle (x, y).
-    :param width: The width of the rectangle.
-    :param height: The height of the rectangle.
-    :param angle: The angle of inclination of the rectangle in degrees.
-    :param color: The color of the rectangle (BGR).
-    :param thickness:
-        The thickness of the rectangle border. Use -1 for filled rectangle.
-    """
+    """Draw a rotated rectangle on an image."""
     # Define the rectangle's corner points before rotation
     rect = np.array(
         [
@@ -173,40 +152,6 @@ def generate_oriented_rectangle(mask):
     box = np.intp(box)
 
     return rect, box
-
-
-def draw_rectangle(
-                image,
-                center,
-                width,
-                height,
-                color=(0, 255, 0),
-                thickness=2
-                ):
-    """
-    Draws a rectangle on an image using the center point, width, and height.
-
-    Parameters:
-        image (numpy.ndarray): The input image on which to draw the rectangle.
-        center (tuple): The (x, y) coordinates of the center of the rectangle.
-        width (int): The width of the rectangle.
-        height (int): The height of the rectangle.
-        color (tuple):
-            The color of the rectangle in BGR format (default is green).
-        thickness (int): The thickness of the rectangle border (default is 2).
-
-    Returns:
-        numpy.ndarray: The image with the rectangle drawn on it.
-    """
-    width = int(width)
-    height = int(height)
-
-    # Calculate the top-left and bottom-right coordinates of the rectangle
-    top_left = (int(center[0] - width / 2), int(center[1] - height / 2))
-    bottom_right = (int(center[0] + width / 2), int(center[1] + height / 2))
-
-    # Draw the rectangle on the image
-    cv2.rectangle(image, top_left, bottom_right, color, thickness)
 
 
 def get_min_depth_coordinates(depth_image, mask):

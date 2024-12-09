@@ -88,7 +88,7 @@ class CameraCalibrationNode(Node):
             cv2.destroyAllWindows()
 
     def calculate_similarity(self, frame1, frame2):
-        """ Calculate similarity using SSIM. """
+        """Calculate similarity using SSIM."""
         gray_frame1 = cv2.cvtColor(frame1, cv2.COLOR_BGR2GRAY)
         gray_frame2 = cv2.cvtColor(frame2, cv2.COLOR_BGR2GRAY)
 
@@ -102,7 +102,7 @@ class CameraCalibrationNode(Node):
         return score
 
     def destroy(self):
-        """ Cleanup method to stop RealSense pipeline and close windows. """
+        """Cleanup method to stop RealSense pipeline and close windows."""
         self.pipeline.stop()
         cv2.destroyAllWindows()
         super().destroy()
