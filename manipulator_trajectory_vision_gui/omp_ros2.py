@@ -594,8 +594,7 @@ class OpenManipulatorPro(Node):
                     pose=target_position + target_orientation,
                     current_thetas=random_angles,
                     max_iter=random.randint(100, 200),
-                    joint_limits=list(self.joint_limits.values()),
-                    method="LM_modified",
+                    method="LM"
                 )
 
                 if self.is_ik_acceptable(

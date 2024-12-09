@@ -4,7 +4,6 @@ from setuptools import setup
 PACKAGE_NAME = 'manipulator_trajectory_vision_gui'
 PACKAGES_LIST = [
     PACKAGE_NAME,
-    'manipulator_trajectory_vision_gui.pykin_omp',
     'manipulator_trajectory_vision_gui.helper_functions',
     'manipulator_trajectory_vision_gui.checking_self_collision',
     'manipulator_trajectory_vision_gui',
@@ -59,7 +58,9 @@ setup(
     name=PACKAGE_NAME,
     version='0.0.0',
     packages=PACKAGES_LIST,
-    data_files=package_files(DATA_FILES, ['config/', 'launch/', 'resource/']),
+    data_files=package_files(DATA_FILES, [
+        'config/', 'launch/', 'resource/', 'yolo_weight/',
+        ]),
     install_requires=['setuptools'],
     zip_safe=True,
     maintainer='cimatec',
@@ -71,7 +72,8 @@ setup(
         'console_scripts': [
             # Nodes
             "real_point_cloud_publisher = "
-            "manipulator_trajectory_vision_gui.real_point_cloud_publisher:main",
+            "manipulator_trajectory_vision_gui."
+            "real_point_cloud_publisher:main",
             "realsense_image_reader = "
             " manipulator_trajectory_vision_gui.realsense_image_reader:main",
             "image_rgb_yolo = "

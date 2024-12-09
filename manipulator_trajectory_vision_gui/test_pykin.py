@@ -12,8 +12,7 @@ joint_limits = {'joint1': (-np.pi/2, np.pi/2),
 c = IKCalculatorOMP()
 print(c.calculate_ik(
             pose=[0.5]*6,
-            current_thetas=[0.5]*6,
+            current_thetas=[0.6]*6,
             max_iter=100,
-            joint_limits=list(joint_limits.values()),
-            method="LM_modified"
+            method="LM"
             ))

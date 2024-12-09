@@ -14,6 +14,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+import os
 import rclpy
 import cv2
 import struct
@@ -27,7 +28,7 @@ from tf2_ros import TransformListener, Buffer
 from std_msgs.msg import String
 from geometry_msgs.msg import TransformStamped
 from sensor_msgs_py import point_cloud2
-from pathlib import Path
+from ament_index_python.packages import get_package_share_directory
 
 from visualization_msgs.msg import Marker
 
@@ -43,9 +44,15 @@ from manipulator_trajectory_vision_gui.helper_functions.utils import (
 class ImageRGBYOLO(Node):
     def __init__(self):
         super().__init__("image_depth_yolo")
-        # Detect fruits model
+
         self.model = YOLO(
-            Path(__file__).resolve().parent / "yolo_weight/best.pt"
+            os.path.join(
+                get_package_share_directory(
+                    'manipulator_trajectory_vision_gui'
+                    ),
+                'yolo_weight',
+                'best.pt'
+                )
             )
 
         self.depth_image = None

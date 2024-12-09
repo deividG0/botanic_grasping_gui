@@ -84,6 +84,7 @@ class DebugPykin(Node):
             "joint5": (-np.pi / 2, np.pi / 2),
             "joint6": (-np.pi / 2, np.pi / 2),
         }
+        self.ik_calculator_omp.joint_limits = self.joint_limits
 
     def switch(self, msg):
         self.mode = msg.data
@@ -214,9 +215,8 @@ class DebugPykin(Node):
                 pose=[x, y, z] + self.target_orientation,
                 current_thetas=random_angles,
                 max_iter=100,
-                joint_limits=list(self.joint_limits.values()),
-                method="LM_modified",
-            )
+                method="LM"
+                )
 
             if self.is_joint_valid(joint_angles):
                 if self.is_ik_acceptable(
@@ -370,11 +370,13 @@ class DebugPykin(Node):
 
     def feedback_callback(self, feedback_msg):
         feedback = feedback_msg.feedback
-        self.get_logger().info('Received feedback: {0}'.format(feedback))
+        feedback
+        # self.get_logger().info('Received feedback: {0}'.format(feedback))
 
     def get_result_callback(self, future):
         result = future.result().result
-        self.get_logger().info('Result: {0}'.format(result))
+        result
+        # self.get_logger().info('Result: {0}'.format(result))
         self.valid_joint_config_found = False
 
 

@@ -14,6 +14,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+import os
 import rclpy
 import cv2
 import numpy as np
@@ -25,8 +26,8 @@ from std_msgs.msg import Float32MultiArray, Int32
 from tf2_ros import TransformListener, Buffer
 from geometry_msgs.msg import TransformStamped
 from std_msgs.msg import String
-from pathlib import Path
 from visualization_msgs.msg import Marker
+from ament_index_python.packages import get_package_share_directory
 
 from manipulator_trajectory_vision_gui.helper_functions.utils import (
     generate_oriented_rectangle,
@@ -43,8 +44,15 @@ class ImageRGBYOLO(Node):
         super().__init__("image_depth_yolo")
 
         self.model = YOLO(
-            Path(__file__).resolve().parent / "yolo_weight/shape_best.pt"
+            os.path.join(
+                get_package_share_directory(
+                    'manipulator_trajectory_vision_gui'
+                    ),
+                'yolo_weight',
+                'shape_best.pt'
+                )
             )
+
         self.depth_image = None
         self.rgb_image = None
         self.H, self.W = None, None
@@ -213,7 +221,7 @@ class ImageRGBYOLO(Node):
                             self.generate_grasp(
                                 self.depth_image,
                                 mask,
-                                [end_link_coordinates],
+                                end_link_coordinates,
                                 [self.fx, self.fy, self.cx, self.cy],
                             )
                             break
