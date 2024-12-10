@@ -25,10 +25,10 @@ Ahead its presented the packages and libraries used in the repository:
 sudo apt update
 ```
 ```bash
-sudo apt install ros-humble-xacro ros-humble-joint-state-publisher-gui ros-humble-gazebo-ros-pkgs ros-humble-gazebo-ros2-control ros-humble-ros2-control ros-humble-ros2-controllers
+sudo apt install ros-humble-xacro ros-humble-joint-state-publisher-gui ros-humble-gazebo-ros-pkgs ros-humble-gazebo-ros2-control ros-humble-ros2-control ros-humble-ros2-controllers liboctomap-dev libfcl-dev
 ```
 
-### Python libraries:
+### Python libraries
 - PIP installation `sudo apt install python3-pip -y`
 - [librealsense2](https://github.com/IntelRealSense/librealsense/blob/master/doc/installation.md)
 - [pytorch](https://pytorch.org/)
@@ -46,6 +46,10 @@ sudo apt install ros-humble-xacro ros-humble-joint-state-publisher-gui ros-humbl
 
 For the packages marked with * just use `pip install -r requirements.txt` after cloning the repository.
 
+### Dynamixel Hardware
+
+For tests on real manipulator, execute the install tutorial from the [dynamixel_hardware](https://github.com/dynamixel-community/dynamixel_hardware) git repository into your workspace.
+
 ## **Installation**
 1. Clone this repository into your workspace:
     ```bash
@@ -55,6 +59,9 @@ For the packages marked with * just use `pip install -r requirements.txt` after 
 2. Install dependencies:
     ```bash
     cd ~/ros2_ws
+    sudo rosdep init
+    rosdep update
+    sudo apt update
     rosdep install --from-paths src --ignore-src -r -y
     ```
 3. Build the workspace:
