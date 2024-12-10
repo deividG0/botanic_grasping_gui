@@ -29,7 +29,7 @@ from std_msgs.msg import String
 from visualization_msgs.msg import Marker
 from ament_index_python.packages import get_package_share_directory
 
-from manipulator_trajectory_vision_gui.helper_functions.utils import (
+from botanic_grasping_gui.helper_functions.utils import (
     generate_oriented_rectangle,
     get_min_depth_coordinates,
     euler_to_quaternion,
@@ -46,7 +46,7 @@ class ImageRGBYOLO(Node):
         self.model = YOLO(
             os.path.join(
                 get_package_share_directory(
-                    'manipulator_trajectory_vision_gui'
+                    'botanic_grasping_gui'
                     ),
                 'yolo_weight',
                 'shape_best.pt'

@@ -38,7 +38,7 @@ def generate_launch_description():
                     '--',
                     'ros2',
                     'launch',
-                    'manipulator_trajectory_vision_gui',
+                    'botanic_grasping_gui',
                     'omp_ros2.launch.py'],
             output='screen'
         )
@@ -49,7 +49,7 @@ def generate_launch_description():
                     '--',
                     'ros2',
                     'launch',
-                    'manipulator_trajectory_vision_gui',
+                    'botanic_grasping_gui',
                     'detection_simulation.launch.py'],
             output='screen'
         )

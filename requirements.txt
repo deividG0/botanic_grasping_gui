@@ -6,3 +6,6 @@ urdf-parser-py==0.0.4
 trimesh==4.3.2
 scikit-image==0.23.2
 mediapipe==0.10.14
+pykin==1.6.0
+transforms3d==0.4.1
+ultralytics==8.2.16

@@ -22,7 +22,7 @@ from tkinter import messagebox
 import numpy as np
 from ament_index_python.packages import get_package_share_directory
 
-from manipulator_trajectory_vision_gui.helper_functions.load_ros_parameters \
+from botanic_grasping_gui.helper_functions.load_ros_parameters \
     import load_yaml_file
 
 
@@ -61,7 +61,7 @@ class TkinterGui():
 
         # Get the parameters from the yaml file
         config_file = os.path.join(
-            get_package_share_directory("manipulator_trajectory_vision_gui"),
+            get_package_share_directory("botanic_grasping_gui"),
             'config',
             'params.yaml'
         )

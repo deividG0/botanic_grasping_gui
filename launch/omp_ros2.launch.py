@@ -28,37 +28,37 @@ def generate_launch_description():
     )
 
     omp_node = Node(
-        package='manipulator_trajectory_vision_gui',
+        package='botanic_grasping_gui',
         name='omp_ros2',
         executable='omp_ros2'
     )
 
     gripper_traj_server = Node(
-        package='manipulator_trajectory_vision_gui',
+        package='botanic_grasping_gui',
         name='gripper_joint_trajectory',
         executable='gripper_joint_trajectory'
     )
 
     omp_joint_trajectory = Node(
-        package='manipulator_trajectory_vision_gui',
+        package='botanic_grasping_gui',
         name='omp_joint_trajectory',
         executable='omp_joint_trajectory'
     )
 
     node_debug_pykin = Node(
-        package='manipulator_trajectory_vision_gui',
+        package='botanic_grasping_gui',
         name='node_debug_pykin_real',
         executable='node_debug_pykin_real'
     )
 
     node_realsense_image_reader = Node(
-        package='manipulator_trajectory_vision_gui',
+        package='botanic_grasping_gui',
         name='realsense_image_reader',
         executable='realsense_image_reader'
     )
 
     node_cam_calibrate = Node(
-        package='manipulator_trajectory_vision_gui',
+        package='botanic_grasping_gui',
         name='camera_calibration_node',
         executable='camera_calibration_node'
     )

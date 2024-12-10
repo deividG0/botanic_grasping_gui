@@ -31,7 +31,7 @@ from std_msgs.msg import Float32MultiArray, Bool
 import matplotlib.pyplot as plt
 from datetime import datetime
 
-from manipulator_trajectory_vision_gui.\
+from botanic_grasping_gui.\
     checking_self_collision.\
     manual_check_self_collision import (
         OMPCollisionChecker,

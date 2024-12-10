@@ -29,7 +29,7 @@ class OMPCollisionChecker:
     def __init__(self):
         # Checker variables
         share_directory = get_package_share_directory(
-            "manipulator_trajectory_vision_gui"
+            "botanic_grasping_gui"
             )
         root_path = os.path.join(
             share_directory,

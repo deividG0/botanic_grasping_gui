@@ -16,18 +16,22 @@
 
 import os
 import numpy as np
+import sys
+import collections.abc
+from ament_index_python.packages import get_package_share_directory
+sys.modules['collections'].Iterable = collections.abc.Iterable
+
 from pykin.robots.single_arm import SingleArm
 from pykin.kinematics import jacobian as jac
 from pykin.utils import transform_utils as t_utils
 from pykin.utils.kin_utils import calc_pose_error
-from ament_index_python.packages import get_package_share_directory
 
 
 class IKCalculatorOMP:
     def __init__(self, start="world", end="end_link"):
         # Default variables
         share_directory = get_package_share_directory(
-            "manipulator_trajectory_vision_gui"
+            "botanic_grasping_gui"
             )
         file_path = os.path.join(
             share_directory,
@@ -35,6 +39,7 @@ class IKCalculatorOMP:
             "total_description",
             "open_manipulator_pro.urdf",
         )
+        file_path = "/.."*10 + file_path
         self.joint_limits = {
                 'joint1': (-np.pi/2, np.pi/2),
                 'joint2': (-np.pi/2, np.pi/2),

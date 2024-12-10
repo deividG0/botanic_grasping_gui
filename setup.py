@@ -1,12 +1,12 @@
 import os
 from setuptools import setup
 
-PACKAGE_NAME = 'manipulator_trajectory_vision_gui'
+PACKAGE_NAME = 'botanic_grasping_gui'
 PACKAGES_LIST = [
     PACKAGE_NAME,
-    'manipulator_trajectory_vision_gui.helper_functions',
-    'manipulator_trajectory_vision_gui.checking_self_collision',
-    'manipulator_trajectory_vision_gui',
+    'botanic_grasping_gui.helper_functions',
+    'botanic_grasping_gui.checking_self_collision',
+    'botanic_grasping_gui',
 ]
 
 DATA_FILES = [
@@ -72,26 +72,26 @@ setup(
         'console_scripts': [
             # Nodes
             "real_point_cloud_publisher = "
-            "manipulator_trajectory_vision_gui."
+            "botanic_grasping_gui."
             "real_point_cloud_publisher:main",
             "realsense_image_reader = "
-            " manipulator_trajectory_vision_gui.realsense_image_reader:main",
+            " botanic_grasping_gui.realsense_image_reader:main",
             "image_rgb_yolo = "
-            " manipulator_trajectory_vision_gui.image_rgb_yolo:main",
+            " botanic_grasping_gui.image_rgb_yolo:main",
             "image_rgb_yolo_real = "
-            " manipulator_trajectory_vision_gui.image_rgb_yolo_real:main",
+            " botanic_grasping_gui.image_rgb_yolo_real:main",
             "omp_controller = "
-            " manipulator_trajectory_vision_gui.omp_controller:main",
+            " botanic_grasping_gui.omp_controller:main",
             "omp_joint_trajectory = "
-            " manipulator_trajectory_vision_gui.omp_joint_trajectory:main",
+            " botanic_grasping_gui.omp_joint_trajectory:main",
             "gripper_joint_trajectory = "
-            " manipulator_trajectory_vision_gui.gripper_joint_trajectory:main",
+            " botanic_grasping_gui.gripper_joint_trajectory:main",
             "node_debug_pykin_real = "
-            " manipulator_trajectory_vision_gui.node_debug_pykin_real:main",
+            " botanic_grasping_gui.node_debug_pykin_real:main",
             "camera_calibration_node = "
-            " manipulator_trajectory_vision_gui.camera_calibration_node:main",
+            " botanic_grasping_gui.camera_calibration_node:main",
 
-            "omp_ros2 = manipulator_trajectory_vision_gui.omp_ros2:main"
+            "omp_ros2 = botanic_grasping_gui.omp_ros2:main"
         ],
     },
 )

@@ -40,7 +40,7 @@ def generate_launch_description():
         'open_manipulator_pro_control'
         )
     manipulator_vision_gui_path = get_package_share_directory(
-        'manipulator_trajectory_vision_gui'
+        'botanic_grasping_gui'
         )
     open_manipulator_gazebo_path = get_package_share_directory(
         'open_manipulator_pro_gazebo'

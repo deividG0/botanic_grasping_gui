@@ -40,7 +40,7 @@ def get_ros_parameters(node_name):
     """
     # Get the parameters from the yaml file
     config_file = os.path.join(
-        get_package_share_directory("manipulator_trajectory_vision_gui"),
+        get_package_share_directory("botanic_grasping_gui"),
         'config',
         'params.yaml'
     )

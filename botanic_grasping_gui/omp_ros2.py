@@ -29,7 +29,7 @@ from std_msgs.msg import Float32MultiArray, Bool
 from visualization_msgs.msg import Marker
 
 # Image related imports
-from manipulator_trajectory_vision_gui.helper_functions.load_ros_parameters \
+from botanic_grasping_gui.helper_functions.load_ros_parameters \
     import get_ros_parameters
 from .tkinter_gui import TkinterGui
 

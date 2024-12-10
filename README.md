@@ -22,8 +22,8 @@ Ahead its presented the packages and libraries used in the repository with its o
 - PIP installation `sudo apt install python3-pip -y`
 - [librealsense2](https://github.com/IntelRealSense/librealsense/blob/master/doc/installation.md)
 - [pytorch](https://pytorch.org/)
-- [ultralytics](https://docs.ultralytics.com/quickstart/#install-ultralytics)
 - [vcstool](https://github.com/dirk-thomas/vcstool)
+- *[ultralytics](https://pypi.org/project/ultralytics/)
 - *[numpy](https://pypi.org/project/numpy/)
 - *[opencv](https://pypi.org/project/opencv-python/)
 - *[mediapipe](https://pypi.org/project/mediapipe/)
@@ -32,6 +32,8 @@ Ahead its presented the packages and libraries used in the repository with its o
 - *[urdf-parser-py](https://pypi.org/project/urdf-parser-py/)
 - *[trimesh](https://pypi.org/project/trimesh/)
 - *[scikit-image](https://pypi.org/project/scikit-image/)
+- *[pykin](https://github.com/jdj2261/pykin/)
+- *[transforms3d](https://pypi.org/project/transforms3d/)
 
 For the packages marked with * just use `pip install -r requirements.txt` after cloning the repository.
 
@@ -43,6 +45,7 @@ For the packages marked with * just use `pip install -r requirements.txt` after 
     ```
 2. Install dependencies:
     ```bash
+    cd ~/ros2_ws
     rosdep install --from-paths src --ignore-src -r -y
     ```
 3. Build the workspace:
@@ -56,12 +59,12 @@ For the packages marked with * just use `pip install -r requirements.txt` after 
 For launch project simulation, run the following command:
 
 ```
-ros2 launch manipulator_trajectory_vision_gui bringup.launch.py type_launch:=simulation
+ros2 launch botanic_grasping_gui bringup.launch.py type_launch:=simulation
 ```
 
 To use in real scenario, run the following command:
 ```
-ros2 launch manipulator_trajectory_vision_gui bringup.launch.py type_launch:=real
+ros2 launch botanic_grasping_gui bringup.launch.py type_launch:=real
 ```
 
 ### **Configuration**
