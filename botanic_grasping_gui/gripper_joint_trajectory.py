@@ -207,7 +207,8 @@ class OMPJointController(Node):
 
     def feedback_callback(self, feedback_msg):
         feedback = feedback_msg.feedback
-        self.get_logger().info(f"Received feedback: {feedback}")
+        feedback
+        # self.get_logger().info(f"Received feedback: {feedback}")
 
     def goal_response_callback(self, future):
         goal_handle = future.result()
@@ -219,7 +220,8 @@ class OMPJointController(Node):
 
     def get_result_callback(self, future):
         result = future.result().result
-        self.get_logger().info(f'Result: {result}')
+        result
+        # self.get_logger().info(f'Result: {result}')
 
         # Sending end of the movimentation to the omp_ros2
         msg = Bool()

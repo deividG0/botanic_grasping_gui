@@ -18,11 +18,20 @@ The `botanig_grasping` package has been tested under:
 
 - ROS2 [`Humble Hawksbill`](https://docs.ros.org/en/humble/Releases/Release-Humble-Hawksbill.html) and Ubuntu 22.04 LTS (Jammy Jellyfish).
 
-Ahead its presented the packages and libraries used in the repository with its own installation instructions link:
+Ahead its presented the packages and libraries used in the repository:
+### Ubuntu packages
+
+```bash
+sudo apt update
+```
+```bash
+sudo apt install ros-humble-xacro ros-humble-joint-state-publisher-gui ros-humble-gazebo-ros-pkgs ros-humble-gazebo-ros2-control ros-humble-ros2-control ros-humble-ros2-controllers
+```
+
+### Python libraries:
 - PIP installation `sudo apt install python3-pip -y`
 - [librealsense2](https://github.com/IntelRealSense/librealsense/blob/master/doc/installation.md)
 - [pytorch](https://pytorch.org/)
-- [vcstool](https://github.com/dirk-thomas/vcstool)
 - *[ultralytics](https://pypi.org/project/ultralytics/)
 - *[numpy](https://pypi.org/project/numpy/)
 - *[opencv](https://pypi.org/project/opencv-python/)
@@ -51,7 +60,7 @@ For the packages marked with * just use `pip install -r requirements.txt` after 
 3. Build the workspace:
     ```bash
     cd ~/ros2_ws
-    colcon build
+    colcon build --symlink-install --event-handlers console_direct+
     ```
 
 ## **Usage**
@@ -69,7 +78,7 @@ ros2 launch botanic_grasping_gui bringup.launch.py type_launch:=real
 
 ### **Configuration**
 
-**[params.yaml](manual_controller/config/params.yaml):** Parameters for trajectory planning for the manipulator and default poses.
+**[params.yaml](botanic_grasping_gui/config/params.yaml):** Parameters for trajectory planning for the manipulator and default poses.
 
 ### **Contributing**
 
