@@ -61,7 +61,6 @@ For tests on real manipulator, execute the install tutorial from the [dynamixel_
     cd ~/ros2_ws
     sudo rosdep init
     rosdep update
-    sudo apt update
     rosdep install --from-paths src --ignore-src -r -y
     ```
 3. Build the workspace:
